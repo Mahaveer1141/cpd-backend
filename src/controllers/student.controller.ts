@@ -53,3 +53,21 @@ export async function updateData(
     next(err);
   }
 }
+
+export async function uploadImage(
+  req: Request,
+  res: Response,
+  next: NextFunction
+) {
+  try {
+    const { file } = req;
+    if (!file) {
+      res.json({ message: "no image uploaded" });
+      return;
+    }
+    res.json({ message: "uploaded" });
+  } catch (err) {
+    console.log(err);
+    next(err);
+  }
+}
