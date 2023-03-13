@@ -2,7 +2,7 @@ import { NextFunction, Request, Response } from "express";
 import brcypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
-import config from "../config";
+import config from "../config/configuration";
 import { generateToken } from "../utils/generateToken";
 import { Auth } from "../schemas/auth.schema";
 import { createStudent, getOneStudent } from "../services/student.service";

@@ -1,5 +1,4 @@
 import { Request, Response, NextFunction } from "express";
-import { sendMail } from "../utils/sendMail";
 import { createCompany, findCompany } from "../services/company.service";
 
 export async function getCompany(
@@ -8,7 +7,6 @@ export async function getCompany(
   next: NextFunction
 ) {
   try {
-    await sendMail();
     const fetchCompany = await findCompany();
     res.json(fetchCompany);
   } catch (err) {

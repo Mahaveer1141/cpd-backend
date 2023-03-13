@@ -8,6 +8,7 @@ import companyRoutes from "./company.routes";
 const router = express.Router();
 
 router.use("/auth", authRoutes);
+// router.use("/student", studentRoutes);
 router.use("/student", authenticateRequest, studentRoutes);
 router.use("/company", companyRoutes);
 

@@ -4,7 +4,7 @@ import morgan from "morgan";
 
 import routes from "./routes";
 import { notFound, errorHandler } from "./middlewares/errorHandler";
-import { startDatabaseConnection } from "./utils/db";
+import { startDatabaseConnection } from "./config/db";
 
 const app = express();
 

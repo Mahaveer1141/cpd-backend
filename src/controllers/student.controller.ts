@@ -1,4 +1,5 @@
 import { Request, Response, NextFunction } from "express";
+import { uploadToCloudinary } from "../services/common.service";
 
 import {
   studentPersonalDetail,
@@ -65,7 +66,9 @@ export async function uploadImage(
       res.json({ message: "no image uploaded" });
       return;
     }
-    res.json({ message: "uploaded" });
+    const url = await uploadToCloudinary(file.filename, req.userId);
+    updateStudentData(req.userId, "personalDetail", { profilePhoto: url });
+    res.json({ message: "image uploaded succesfully", url });
   } catch (err) {
     console.log(err);
     next(err);

@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import config from "../config";
+import config from "./configuration";
 
 export async function startDatabaseConnection() {
   const MONGO_URI = config.mongo.MONGO_URI;
